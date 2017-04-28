@@ -18,7 +18,7 @@ RUN echo 'root:root' |chpasswd
 RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 ##
-COPY COPY supervisord.conf /etc/supervisord.conf
+COPY supervisord.conf /etc/supervisord.conf
 ##
 
 ADD xstartup /root/.vnc/xstartup
