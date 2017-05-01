@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 while [ 1 ]
 do
   ps -fe|grep firefox |grep -v grep
