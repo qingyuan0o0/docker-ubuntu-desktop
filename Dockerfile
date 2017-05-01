@@ -10,7 +10,10 @@ RUN apt-get update && \
     mkdir /root/.vnc
 ##
 RUN apt-get install -y openssh-server && \
-    apt-get install -y supervisor
+    apt-get install -y supervisor && \
+    apt-get install -y make && \
+    apt-get install -y gcc && \
+    apt-get install -y git
 RUN mkdir /var/run/sshd
 
 RUN echo 'root:root' |chpasswd
