@@ -20,6 +20,9 @@ RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 ##
 COPY supervisord.conf /etc/supervisord.conf
 ##
+COPY reset.sh /root/reset.sh
+COPY check.sh /root/check.sh
+RUN chmod +x /root/*.sh
 
 ADD xstartup /root/.vnc/xstartup
 ADD passwd /root/.vnc/passwd
