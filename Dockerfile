@@ -31,7 +31,7 @@ ADD xstartup /root/.vnc/xstartup
 ADD passwd /root/.vnc/passwd
 
 RUN chmod 600 /root/.vnc/passwd
-EXPOSE 22 5901 25 3000 443 4000/udp 53 53/udp 3306 13389 23389 33389 43389 53389
+EXPOSE 22 5901 25 3000 443 4000/udp 53 53/udp 3306 13389 23389 33389 43389 53389 80 8080 138
 CMD ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
 
 
