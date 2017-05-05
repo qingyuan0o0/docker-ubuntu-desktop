@@ -36,6 +36,5 @@ RUN chmod +x /usr/sbin/entrypoint.sh
 
 EXPOSE 22 5901 25 3000 443 4000/udp 53 53/udp 3306 13389 23389 33389 43389 53389 80 8080 138
 ENTRYPOINT ["entrypoint.sh"]
-CMD ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
 
 
