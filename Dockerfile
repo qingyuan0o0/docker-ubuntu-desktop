@@ -11,6 +11,7 @@ RUN apt-get update && \
 ##
 RUN apt-get install -y openssh-server && \
     apt-get install -y supervisor && \
+    apt-get install -y vim && \
     apt-get install -y make && \
     apt-get install -y gcc && \
     apt-get install -y git
@@ -34,7 +35,7 @@ RUN chmod 600 /root/.vnc/passwd
 ADD entrypoint.sh /usr/sbin
 RUN chmod +x /usr/sbin/entrypoint.sh
 
-EXPOSE 22 5901 25 3000 443 4000/udp 53 53/udp 3306 13389 23389 33389 43389 53389 80 8080 138
+EXPOSE 22 5901 25 3000 443 4000/udp 53 53/udp 3306 3389 13389 23389 33389 43389 53389 80 8080 138 6800
 ENTRYPOINT ["entrypoint.sh"]
 
 
