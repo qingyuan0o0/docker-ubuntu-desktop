@@ -10,12 +10,7 @@ RUN apt-get update && \
     apt-get install -y tightvncserver && \
     mkdir /root/.vnc
 ##
-RUN apt-get install -y openssh-server && \
-    apt-get install -y supervisor && \
-    apt-get install -y vim && \
-    apt-get install -y make && \
-    apt-get install -y gcc && \
-    apt-get install -y git
+RUN apt-get install -y openssh-server supervisor vim make gcc git
 RUN mkdir /var/run/sshd
 
 RUN echo 'root:root' |chpasswd
