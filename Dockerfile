@@ -2,6 +2,7 @@ FROM ubuntu:16.04
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV USER root
+ENV TZ Asia/Shanghai
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends ubuntu-desktop && \
