@@ -33,7 +33,7 @@ RUN chmod 600 /root/.vnc/passwd
 ADD entrypoint.sh /usr/sbin
 RUN chmod +x /usr/sbin/entrypoint.sh
 
-EXPOSE 22 5901 25 3000 443 4000/udp 53 53/udp 3306 3389 13389 23389 33389 43389 53389 80 8080 138 6800
+EXPOSE 22 5901 443 80
 ENTRYPOINT ["entrypoint.sh"]
 
 
