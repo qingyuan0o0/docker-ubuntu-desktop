@@ -23,7 +23,7 @@ COPY supervisord.conf /etc/supervisord.conf
 COPY reset.sh /root/reset.sh
 COPY check.sh /root/check.sh
 COPY rinetd_install.sh /root/rinetd_install.sh
-COPY rinetd_restart.sh /root/rinetd_restart.sh
+COPY port.sh /root/port.sh
 RUN chmod +x /root/*.sh
 
 ADD xstartup /root/.vnc/xstartup
