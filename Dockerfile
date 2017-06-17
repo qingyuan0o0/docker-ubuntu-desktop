@@ -10,7 +10,7 @@ RUN apt-get update && \
     apt-get install -y tightvncserver && \
     mkdir /root/.vnc
 ##
-RUN apt-get install -y openssh-server supervisor vim make gcc git firefox ttf-wqy-microhei python python-pip python-m2crypto libnet1-dev libpcap0.8-dev
+RUN apt-get install -y openssh-server supervisor vim make gcc git firefox ttf-wqy-microhei libnet1-dev libpcap0.8-dev
 
 RUN mkdir /var/run/sshd
 
