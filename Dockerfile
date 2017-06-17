@@ -28,12 +28,17 @@ COPY rinetd_install.sh /root/rinetd_install.sh
 COPY port.sh /root/port.sh
 RUN chmod +x /root/*.sh
 
+RUN git clone https://github.com/snooda/net-speeder.git net-speeder
+WORKDIR net-speeder
+RUN sh build.sh
+RUN mv net_speeder /usr/local/bin/
+
 ADD xstartup /root/.vnc/xstartup
 ADD passwd /root/.vnc/passwd
 
 RUN chmod 600 /root/.vnc/passwd
 ADD entrypoint.sh /usr/sbin
-RUN chmod +x /usr/sbin/entrypoint.sh
+RUN chmod +x /usr/sbin/entrypoint.sh /usr/local/bin/net_speeder
 
 EXPOSE 22 5901 443 80
 ENTRYPOINT ["entrypoint.sh"]
