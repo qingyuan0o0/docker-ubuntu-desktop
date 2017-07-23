@@ -21,8 +21,6 @@ COPY supervisord.conf /etc/supervisord.conf
 COPY reset.sh /root/reset.sh
 COPY check.sh /root/check.sh
 COPY vnc.sh /root/vnc.sh
-COPY rinetd_install.sh /root/rinetd_install.sh
-COPY port.sh /root/port.sh
 RUN chmod +x /root/*.sh && \
     git clone https://github.com/snooda/net-speeder.git net-speeder
 WORKDIR net-speeder
