@@ -33,6 +33,7 @@ ADD passwd /root/.vnc/passwd
 ADD entrypoint.sh /usr/sbin
 RUN chmod 600 /root/.vnc/passwd && \
     chmod +x /usr/sbin/entrypoint.sh /usr/local/bin/net_speeder
+WORKDIR /root
 
 EXPOSE 22 5901 443 80
 ENTRYPOINT ["entrypoint.sh"]
