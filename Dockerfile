@@ -11,20 +11,22 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends ubuntu-desktop && \
     apt-get install -y gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal && \
     apt-get install -y tightvncserver && \
-    mkdir /root/.vnc
+    apt-get clean && \
+    mkdir /root/.vnc 
 ##
-RUN apt-get install -y openssh-server supervisor vim firefox firefox-locale-zh-hans ttf-wqy-microhei libnet1-dev libpcap0.8-dev && \
+RUN apt-get update && apt-get install -y openssh-server supervisor vim git firefox firefox-locale-zh-hans ttf-wqy-microhei libnet1-dev libpcap0.8-dev && \
     mkdir /var/run/sshd && \
     echo 'root:root' |chpasswd && \
     sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-    sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
+    sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config  && \
+    apt-get clean
 ##
 COPY supervisord.conf /etc/supervisord.conf
 ##
 COPY reset.sh /root/reset.sh
 COPY check.sh /root/check.sh
 COPY vnc.sh /root/.vnc/vnc.sh
-RUN apt-get install -y git && chmod +x /root/*.sh /root/.vnc/vnc.sh && \
+RUN chmod +x /root/*.sh /root/.vnc/vnc.sh && \
     git clone https://github.com/snooda/net-speeder.git net-speeder
 WORKDIR net-speeder
 RUN sh build.sh && \
