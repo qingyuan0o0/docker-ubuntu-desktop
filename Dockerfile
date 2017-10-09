@@ -4,13 +4,16 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV USER root
 ENV TZ Asia/Shanghai
 
+RUN locale-gen zh_CN.UTF-8
+ENV LANG zh_CN.UTF-8
+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends ubuntu-desktop && \
     apt-get install -y gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal && \
     apt-get install -y tightvncserver && \
     mkdir /root/.vnc
 ##
-RUN apt-get install -y openssh-server supervisor git vim firefox ttf-wqy-microhei libnet1-dev libpcap0.8-dev && \
+RUN apt-get install -y openssh-server supervisor vim firefox firefox-locale-zh-hans ttf-wqy-microhei libnet1-dev libpcap0.8-dev && \
     mkdir /var/run/sshd && \
     echo 'root:root' |chpasswd && \
     sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
