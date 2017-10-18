@@ -41,6 +41,4 @@ RUN sudo chmod 600 /home/myuser/.vnc/passwd && \
 WORKDIR /home/myuser
 ENV USER myuser
 
-ENTRYPOINT ["entrypoint.sh"]
-
-
+CMD entrypoint.sh
