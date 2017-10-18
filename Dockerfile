@@ -26,7 +26,7 @@ COPY reset.sh /home/myuser/reset.sh
 COPY check.sh /home/myuser/check.sh
 COPY vnc.sh /home/myuser/.vnc/vnc.sh
 RUN sudo chmod +x /home/myuser/*.sh /home/myuser/.vnc/vnc.sh && \
-    git clone https://github.com/snooda/net-speeder.git net-speeder
+    sudo git clone https://github.com/snooda/net-speeder.git net-speeder
 WORKDIR net-speeder
 RUN sudo sh build.sh && \
     sudo mv net_speeder /usr/local/bin/
