@@ -4,8 +4,9 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN useradd -m myuser
 USER myuser
 ENV TZ Asia/Shanghai
+RUN apt-get update && apt-get install -y sudo
 
-RUN locale-gen zh_CN.UTF-8
+RUN sudo locale-gen zh_CN.UTF-8
 ENV LANG zh_CN.UTF-8
 
 RUN apt-get update && \
