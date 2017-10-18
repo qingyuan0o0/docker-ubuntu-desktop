@@ -18,10 +18,6 @@ RUN sudo apt-get update && \
 ##
 RUN sudo apt-get update && sudo apt-get install -y openssh-server supervisor vim git firefox firefox-locale-zh-hans ttf-wqy-microhei libnet1-dev libpcap0.8-dev && \
     sudo apt-get install -y language-pack-zh-hans-base language-pack-zh-hans language-pack-gnome-zh-hans language-pack-gnome-zh-hans-base && \
-    sudo mkdir /var/run/sshd && \
-    echo 'myuser:myuser' |chpasswd && \
-    sudo sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-    sudo sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config  && \
     sudo apt-get clean
 ##
 COPY supervisord.conf /etc/supervisord.conf
