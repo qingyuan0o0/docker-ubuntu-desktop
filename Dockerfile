@@ -9,12 +9,12 @@ ENV LANG zh_CN.UTF-8
 RUN useradd -m myuser
 USER myuser
 
-RUN apt-get update && \
+RUN sudo apt-get update && \
     apt-get install -y --no-install-recommends ubuntu-desktop && \
     apt-get install -y gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal && \
     apt-get install -y tightvncserver && \
     apt-get clean && \
-    mkdir /root/.vnc 
+    mkdir /home/myuser/.vnc 
 ##
 RUN apt-get update && apt-get install -y openssh-server supervisor vim git firefox firefox-locale-zh-hans ttf-wqy-microhei libnet1-dev libpcap0.8-dev && \
     apt-get install -y language-pack-zh-hans-base language-pack-zh-hans language-pack-gnome-zh-hans language-pack-gnome-zh-hans-base && \
