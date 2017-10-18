@@ -10,11 +10,11 @@ RUN useradd -m myuser && echo 'myuser ALL=(ALL:ALL) ALL' >> /etc/sudoers
 USER myuser
 
 RUN sudo apt-get update && \
-    apt-get install -y --no-install-recommends ubuntu-desktop && \
-    apt-get install -y gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal && \
-    apt-get install -y tightvncserver && \
-    apt-get clean && \
-    mkdir /home/myuser/.vnc 
+    sudo apt-get install -y --no-install-recommends ubuntu-desktop && \
+    sudo apt-get install -y gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal && \
+    sudo apt-get install -y tightvncserver && \
+    sudo apt-get clean && \
+    sudo mkdir /home/myuser/.vnc 
 ##
 RUN apt-get update && apt-get install -y openssh-server supervisor vim git firefox firefox-locale-zh-hans ttf-wqy-microhei libnet1-dev libpcap0.8-dev && \
     apt-get install -y language-pack-zh-hans-base language-pack-zh-hans language-pack-gnome-zh-hans language-pack-gnome-zh-hans-base && \
