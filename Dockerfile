@@ -6,7 +6,7 @@ ENV TZ Asia/Shanghai
 RUN sudo locale-gen zh_CN.UTF-8
 ENV LANG zh_CN.UTF-8
 
-RUN useradd -m myuser && echo 'myuser ALL=(ALL:ALL) ALL' >> /etc/sudoers
+RUN useradd -m myuser && echo 'myuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers  
 USER myuser
 
 RUN sudo apt-get update && \
