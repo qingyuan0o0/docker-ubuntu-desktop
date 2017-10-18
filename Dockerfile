@@ -29,7 +29,7 @@ RUN sudo chmod +x /home/myuser/*.sh /home/myuser/.vnc/vnc.sh && \
     git clone https://github.com/snooda/net-speeder.git net-speeder
 WORKDIR net-speeder
 RUN sudo sh build.sh && \
-    mv net_speeder /usr/local/bin/
+    sudo mv net_speeder /usr/local/bin/
 
 ADD xstartup /home/myuser/.vnc/xstartup
 ADD passwd /home/myuser/.vnc/passwd
