@@ -38,8 +38,8 @@ ADD entrypoint.sh /usr/sbin
 RUN sudo chmod 600 /home/myuser/.vnc/passwd && \
     sudo chmod +x /usr/sbin/entrypoint.sh /usr/local/bin/net_speeder
 WORKDIR /home/myuser
+ENV myuser
 
-EXPOSE 22 5901 443 80
 ENTRYPOINT ["entrypoint.sh"]
 
 
