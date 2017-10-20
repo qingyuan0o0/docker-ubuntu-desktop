@@ -1,3 +1,4 @@
+# This version is for heroku only
 FROM ubuntu:14.04
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -37,7 +38,8 @@ ADD passwd /home/myuser/.vnc/passwd
 
 ADD entrypoint.sh /usr/sbin
 RUN sudo chmod 600 /home/myuser/.vnc/passwd && \
-    sudo chmod +x /usr/sbin/entrypoint.sh /usr/local/bin/net_speeder
+    sudo chmod +x /usr/sbin/entrypoint.sh /usr/local/bin/net_speeder && \
+    sudo ln -s /noVNC/vnc.html /noVNC/index.html 
 WORKDIR /home/myuser
 ENV USER myuser
 
