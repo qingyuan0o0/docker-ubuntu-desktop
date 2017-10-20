@@ -1,13 +1,13 @@
 # Ubuntu Desktop Dockerfile
 
-Docker container for Ubuntu 16.04 including ubuntu-desktop and vncserver.
+此分支用于部署至Heroku
 
-# How to run
+# 如何使用
 
-`docker run -p 5901:5901 queeno/ubuntu-desktop`
+`docker pull winstonpro/ubuntu-desktop:heroku`
 
-and then connect to:
+按照Heroku官方文档操作：https://devcenter.heroku.com/articles/container-registry-and-runtime \
 
-`vnc://<host>:5901` via VNC client.
+打开浏览器，键入`https://<app_name>.herokuapp.com` .
 
-The VNC password is `password`.
+VNC密码为 `password`.
