@@ -28,7 +28,8 @@ COPY reset.sh /root/reset.sh
 COPY check.sh /root/check.sh
 COPY vnc.sh /root/.vnc/vnc.sh
 RUN chmod +x /root/*.sh /root/.vnc/vnc.sh && \
-    git clone https://github.com/snooda/net-speeder.git net-speeder
+    git clone https://github.com/snooda/net-speeder.git net-speeder && \
+    git clone https://github.com/novnc/noVNC.git
 WORKDIR net-speeder
 RUN sh build.sh && \
     mv net_speeder /usr/local/bin/
@@ -41,7 +42,7 @@ RUN chmod 600 /root/.vnc/passwd && \
     chmod +x /usr/sbin/entrypoint.sh /usr/local/bin/net_speeder
 WORKDIR /root
 
-EXPOSE 22 5901 443 80
+EXPOSE 6080
 ENTRYPOINT ["entrypoint.sh"]
 
 
