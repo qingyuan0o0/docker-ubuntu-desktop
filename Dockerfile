@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y openssh-server supervisor vim git firef
     sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config  && \
     apt-get clean
 ##
+RUN apt-get update && apt-get install -y autocutsel && apt-get clean
 COPY supervisord.conf /etc/supervisord.conf
 ##
 COPY reset.sh /root/reset.sh
