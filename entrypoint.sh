@@ -7,7 +7,7 @@ fi
 if [ "$ETH"  ==  '0' ] ; then
     nohup /usr/local/bin/net_speeder venet0 "ip" >/dev/null 2>&1 &
 fi
-
+ln -s /noVNC/vnc.html /noVNC/index.html
 /etc/init.d/ssh restart
 /usr/bin/supervisord -c /etc/supervisord.conf
 exec "$@"
