@@ -1,7 +1,7 @@
 #!/bin/bash
 while [ 1 ]
 do
-  ps -fe|grep firefox |grep -v grep
+  ps -fe|grep tightvnc |grep -v grep
   if [ $? -ne 0 ]
   then
   echo "start vnc ..."
