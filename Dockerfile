@@ -10,7 +10,7 @@ ENV LANG zh_CN.UTF-8
 RUN apt-get update && \
     apt-get install -y --no-install-recommends ubuntu-desktop && \
     apt-get install -y gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal && \
-    apt-get install -y tightvncserver && \
+    apt-get install -y tightvncserver wget && \
     apt-get clean && \
     mkdir /root/.vnc 
 ##
