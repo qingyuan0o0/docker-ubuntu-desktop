@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV USER root
 ENV TZ Asia/Shanghai
 
-RUN apt-get update && apt-get install -y locales && locale-gen zh_CN.UTF-8
+RUN apt-get update && apt-get install -y locales && apt-get clean && locale-gen zh_CN.UTF-8
 ENV LANG zh_CN.UTF-8
 
 RUN apt-get update && \
@@ -30,7 +30,7 @@ COPY vnc.sh /root/.vnc/vnc.sh
 RUN chmod +x /root/*.sh /root/.vnc/vnc.sh && \
     git clone https://github.com/snooda/net-speeder.git net-speeder
 WORKDIR net-speeder
-RUN sh build.sh && \
+RUN apt-get update && apt-get install -y build-essential && apt-get clean && sh build.sh && \
     mv net_speeder /usr/local/bin/
 
 ADD xstartup /root/.vnc/xstartup
