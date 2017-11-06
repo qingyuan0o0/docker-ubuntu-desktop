@@ -11,4 +11,3 @@ fi
 # export the $PORT env
 sed -i "s/6080/$PORT/g" /etc/supervisord.conf
 /usr/bin/supervisord -c /etc/supervisord.conf
-exec "$@"
