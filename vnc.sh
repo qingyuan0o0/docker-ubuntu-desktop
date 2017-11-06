@@ -7,7 +7,7 @@ do
   echo "start vnc ..."
   rm -f /tmp/.X1-lock
   rm -f /tmp/.X11-unix/X1
-  sudo /usr/bin/vncserver :1 -geometry 1280x800 -depth 24
+  /usr/bin/vncserver :1 -geometry 1280x800 -depth 24
   else
   echo "vnc is running"
   fi
