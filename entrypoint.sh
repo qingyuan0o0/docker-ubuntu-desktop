@@ -8,8 +8,6 @@ if [ "$ETH"  ==  '0' ] ; then
     nohup /usr/local/bin/net_speeder venet0 "ip" >/dev/null 2>&1 &
 fi
 
-echo "nameserver 8.8.8.8" > /etc/resolv.conf
-echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 # export the $PORT env
 sed -i "s/6080/$PORT/g" /etc/supervisord.conf
 /usr/bin/supervisord -c /etc/supervisord.conf
