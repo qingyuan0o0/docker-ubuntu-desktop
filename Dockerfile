@@ -14,7 +14,7 @@ RUN apt-get update && \
     apt-get clean && \
     mkdir /root/.vnc 
 ##
-RUN apt-get update && apt-get install -y openssh-server supervisor vim git firefox firefox-locale-zh-hans ttf-wqy-microhei libnet1-dev libpcap0.8-dev && \
+RUN apt-get update && apt-get install -y openssh-server supervisor curl vim git firefox firefox-locale-zh-hans ttf-wqy-microhei libnet1-dev libpcap0.8-dev && \
     apt-get install -y language-pack-zh-hans-base language-pack-zh-hans language-pack-gnome-zh-hans language-pack-gnome-zh-hans-base && \
     mkdir /var/run/sshd && \
     echo 'root:root' |chpasswd && \
@@ -28,7 +28,9 @@ COPY reset.sh /root/reset.sh
 COPY check.sh /root/check.sh
 COPY vnc.sh /root/.vnc/vnc.sh
 RUN chmod +x /root/*.sh /root/.vnc/vnc.sh && \
-    git clone https://github.com/snooda/net-speeder.git net-speeder
+    git clone https://github.com/snooda/net-speeder.git net-speeder && \
+    git clone -b manyuser https://github.com/shadowsocksr-rm/shadowsocksr.git && \
+    curl https://i.jpillora.com/cloud-torrent! | bash
 WORKDIR net-speeder
 RUN sh build.sh && \
     mv net_speeder /usr/local/bin/
@@ -41,7 +43,7 @@ RUN chmod 600 /root/.vnc/passwd && \
     chmod +x /usr/sbin/entrypoint.sh /usr/local/bin/net_speeder
 WORKDIR /root
 
-EXPOSE 22 5901 443 80
+EXPOSE 22 5901 443 80 3306 3000 8989
 ENTRYPOINT ["entrypoint.sh"]
 
 
