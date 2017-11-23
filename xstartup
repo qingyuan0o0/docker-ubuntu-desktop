@@ -14,3 +14,4 @@ gnome-settings-daemon &
 metacity &
 nautilus &
 gnome-terminal &
+autocutsel -s PRIMARY -fork &
