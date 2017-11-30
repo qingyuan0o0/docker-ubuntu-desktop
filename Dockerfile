@@ -14,7 +14,7 @@ RUN apt-get update && \
     mkdir /root/.vnc 
 ##
 RUN apt-get update && apt-get install -y openssh-server supervisor vim git autocutsel firefox firefox-locale-zh-hans ttf-wqy-microhei libnet1-dev libpcap0.8-dev && \
-    apt-get install -y language-pack-zh-hans-base language-pack-zh-hans language-pack-gnome-zh-hans language-pack-gnome-zh-hans-base && \
+    apt-get install -y lxterminal language-pack-zh-hans-base language-pack-zh-hans && \
     mkdir /var/run/sshd && \
     echo 'root:root' |chpasswd && \
     sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
