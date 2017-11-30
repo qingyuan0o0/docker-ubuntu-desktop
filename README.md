@@ -1,13 +1,13 @@
 # Ubuntu Desktop Dockerfile
 
-Docker container for Ubuntu 16.04 including ubuntu-desktop and vncserver.
+此分支用于部署至Bluemix-cf
 
-# How to run
-
-`docker run -p 5901:5901 queeno/ubuntu-desktop`
-
-and then connect to:
-
-`vnc://<host>:5901` via VNC client.
-
-The VNC password is `password`.
+# 配置文件推荐
+---
+applications:  
+ -name: <app_name>  
+   instances: 1  
+   memory: 512M  
+   disk_quota: 2048M  
+   docker:  
+    image: winstonpro/ubuntu-desktop:bluemix-cf
